@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:14
+    command: [ "postgres", "-c", "log_statement=all" ]
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGES_PASSWORD: rappelconso
+    volumes:
+      - dbdata:/var/lib/postgresql/data/
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+
+volumes:
+  dbdata:
+    driver: local
