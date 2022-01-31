@@ -103,5 +103,10 @@ func (r *Repository) flushDBRecords() error {
 	if _, err := r.db.Exec(`TRUNCATE TABLE record`); err != nil {
 		return err
 	}
+
+	if _, err := r.db.Exec(`ALTER SEQUENCE record_id_seq RESTART WITH 1`); err != nil {
+		return err
+	}
+
 	return nil
 }

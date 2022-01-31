@@ -31,6 +31,7 @@ type RecordEntity struct {
 	Images         string `db:"lien_vers_la_liste_des_images"`
 	PDF            string `db:"lien_vers_l_affichette_pdf"`
 	DateRef        string `db:"date_ref"`
+	CreatedAt      string `db:"created_at"`
 }
 
 func newRecordEntity(r datagouv.RecordData) RecordEntity {

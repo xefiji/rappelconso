@@ -11,14 +11,7 @@ import (
 
 func fetchHandler(repo *Repository) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		offset, err := repo.countDBRecords()
-		if err != nil {
-			log.Error().Caller().Err(err).Msg("error while counting records")
-			c.JSON(http.StatusInternalServerError, gin.H{"message": "error while counting records"})
-			return
-		}
-
-		if err := saveRecords(repo, offset, 100); err != nil {
+		if err := saveRecords(repo, 0, 100); err != nil {
 			log.Error().Err(err).Msg("error while saving records")
 			c.JSON(http.StatusInternalServerError, gin.H{"message": "error while saving records"})
 			return

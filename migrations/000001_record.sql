@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS "record" (
     "id" SERIAL PRIMARY KEY,
+    "created_at" timestamptz DEFAULT CURRENT_TIMESTAMP,
     "uuid" character varying(255) NOT NULL UNIQUE,
     "timestamp" timestamp NOT NULL,
     "size" integer NOT NULL,
