@@ -6,6 +6,10 @@
 
 
 Next:
+- Migration
+- Github flow
+- Count routes
+- UI with elm
 - alerts geoloc
 - alerts by email
 - alerts by phone

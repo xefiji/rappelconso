@@ -98,3 +98,10 @@ func (r *Repository) countDBRecords() (int, error) {
 
 	return count, r.db.Get(&count, query)
 }
+
+func (r *Repository) flushDBRecords() error {
+	if _, err := r.db.Exec(`TRUNCATE TABLE record`); err != nil {
+		return err
+	}
+	return nil
+}
